@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Sheet Clone</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Excel Sheet Clone</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <div class="toolbar">
-        <button class="toolbar-icon-button" onclick="document.execCommand('copy')">©️</button>
-        <button class="toolbar-icon-button" onclick="document.execCommand('cut')">✂️</button>
-        <button class="toolbar-icon-button" onclick="document.execCommand('paste')">📓</button>
+  <div class="toolbar">
+    <button class="toolbar-icon-button" onclick="document.execCommand('copy')">📋</button>
+    <button class="toolbar-icon-button" onclick="document.execCommand('cut')">✂️</button>
+    <button class="toolbar-icon-button" onclick="document.execCommand('paste')">📄</button>
 
-        <select id="fontSelect">
-            <option value="monospace">MonoSpace</option>
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana</option>
-        </select>
+    <select id="fontSelect">
+      <option value="monospace">Monospace</option>
+      <option value="Arial">Arial</option>
+      <option value="Verdana">Verdana</option>
+    </select>
 
-        <select id="fontSizeSelect">
-            <option value="10">10</option>
-            <option value="12">12</option>
-            <option value="14">14</option>
-            <option value="16">16</option>
-            <option value="18">18</option>
-        </select>
+    <select id="fontSizeSelect">
+      <option value="10">10</option>
+      <option value="12">12</option>
+      <option value="14">14</option>
+      <option value="16" selected>16</option>
+      <option value="18">18</option>
+    </select>
 
-        <button onclick="format('bold')">B</button>
-        <button onclick="format('italic')">I</button>
-        <button onclick="format('underline')">U</button>
-        <button onclick="format('justifyLeft')">⬅️</button>
-        <button onclick="format('justifyCenter')">↔️</button>
-        <button onclick="format('justifyRight')">➡️</button>
-        <button onclick="format('removeFormate')">❌</button>
+    <button onclick="format('bold')"><b>B</b></button>
+    <button onclick="format('italic')"><i>I</i></button>
+    <button onclick="format('underline')"><u>U</u></button>
+    <button onclick="format('justifyLeft')">⬅️</button>
+    <button onclick="format('justifyCenter')">↔️</button>
+    <button onclick="format('justifyRight')">➡️</button>
+    <button onclick="format('removeFormat')">❌</button>
 
-        <label style="color:white">Text:<input type="color" onchange="applyColor(this.value,'color')" /></label>
-        <label style="color:white">Bg:<input type="color" onchange="applyColor(this.value,'backgroundColor')" /></label>
+    <label>Text: <input type="color" onchange="applyColor(this.value,'color')" /></label>
+    <label>Bg: <input type="color" onchange="applyColor(this.value,'backgroundColor')" /></label>
 
-        <button class="new-sheet-btn" onclick="addNewSheet()">+ New Sheet</button>
+    <button class="new-sheet-btn" onclick="addNewSheet()">+ Sheet</button>
+    <button onclick="exportToCSV()">⬇️ Export</button>
+    <input type="file" id="importFile" accept=".csv" />
+    <button onclick="toggleDarkMode()">🌙</button>
+  </div>
 
-        <button onclick="exportToCSV()">⬇️</button>
-        <input type="file" id="importFile" accept=".csv" />
-    </div>
-    <div class="sheet-container" id="sheetContainer"></div>
-    <script src="script.js"></script>
+  <div class="formula-bar-container">
+    <span>=</span>
+    <input type="text" id="formulaInput" placeholder="Enter formula or value..." />
+  </div>
 
+  <div class="sheet-container" id="sheetContainer"></div>
+  <script src="script.js"></script>
 </body>
-
 </html>

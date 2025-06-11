@@ -1,102 +1,156 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f9;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f9;
+  transition: background 0.3s, color 0.3s;
+  color: #000;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #fff;
 }
 
 .toolbar {
-    background: green;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: green;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .toolbar select,
 .toolbar button,
 .toolbar input[type="file"],
 .toolbar input[type="color"] {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .toolbar button {
-    background-color: white;
-    color: green;
-    font-weight: bold;
+  background-color: white;
+  color: green;
+  font-weight: bold;
 }
 
 .toolbar button:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .toolbar-icon-button {
-    background-color: white;
-    color: green;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
+  background-color: white;
+  color: green;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
 }
 
-.toolbar-icon-button :hover {
-    background-color: #ddd;
+.toolbar-icon-button:hover {
+  background-color: #ddd;
 }
 
 .spreadsheet {
-    display: grid;
-    grid-template-columns: 40px repeat(20, 100px);
-    margin: 10px;
-    background: white;
-    border-radius: 8px;
-    overflow: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 40px repeat(20, 100px);
+  margin: 10px;
+  background: white;
+  border-radius: 8px;
+  overflow: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dark .spreadsheet {
+  background-color: #2a2a2a;
 }
 
 .cell,
 .header {
-    border: 1px solid #ccc;
-    padding: 6px;
-    box-sizing: border-box;
-    min-height: 24px;
+  border: 1px solid #ccc;
+  padding: 6px;
+  box-sizing: border-box;
+  min-height: 24px;
+}
+
+.dark .cell {
+  background-color: #333;
+  color: #fff;
 }
 
 .header {
-    background: #edf2f7;
-    font-weight: bold;
-    text-align: center;
+  background: #edf2f7;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dark .header {
+  background-color: #444;
+  color: #fff;
 }
 
 .cell[contenteditable] {
-    background: #fff;
-    outline: none;
+  outline: none;
 }
 
 .row-header {
-    grid-column: 1;
-    background: #edf2f7;
-    text-align: center;
-    font-weight: bold;
+  grid-column: 1;
+  background: #edf2f7;
+  text-align: center;
+  font-weight: bold;
+}
+
+.dark .row-header {
+  background: #444;
 }
 
 .sheet-container {
-    padding: 10px;
+  padding: 10px;
 }
 
 .new-sheet-btn {
-    background-color: #fff;
-    color: green;
-    font-weight: bold;
-    border-radius: 4px;
-    border: 2px solid green;
+  background-color: #fff;
+  color: green;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid green;
 }
 
 .new-sheet-btn:hover {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
+}
+
+.formula-bar-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background: #e2e8f0;
+}
+
+.dark .formula-bar-container {
+  background-color: #333;
+  color: white;
+}
+
+.formula-bar-container input {
+  flex: 1;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin-left: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+.dark .formula-bar-container input {
+  background: #444;
+  color: white;
+  border-color: #555;
 }
